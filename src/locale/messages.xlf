@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="maintitle" datatype="html">
+        <source> HOST APPLICATION </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/hostapp/hostapp.component.html</context>
+          <context context-type="linenumber">16,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="mf-kcusers-link" datatype="html">
+        <source>Keycloak users</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/hostapp/hostapp.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="mf-example-link" datatype="html">
+        <source>Example microfrontend</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/hostapp/hostapp.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="logout-button" datatype="html">
+        <source>Logout</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/hostapp/hostapp.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

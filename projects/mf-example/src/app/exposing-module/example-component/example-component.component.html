@@ -1,0 +1,23 @@
+<div class="w-auto p-3 h-auto d-inline-block">
+  <div class="card">
+    <div class="card-body" *ngIf="authService.isLoggedIn()">
+      <h1 class="card-title">Microfrontend example</h1>
+      <h2 class="card-text" *ngIf="authService.isLoggedIn()">LOGGED IN:
+        <span class="badge text-bg-primary m-1">successfully</span>
+      </h2>
+      <h2 class="card-text">USERNAME: {{ authService.getAuthContext()?.userName }}</h2>
+
+      <h2>AUTHORITIES
+        <span *ngFor="let authority of authService.getAuthContext()?.userRoles"
+              class="badge text-bg-success m-1">
+          {{ authority }}
+        </span>
+      </h2>
+
+      <button (click)="authService.getAuthContext()?.logoutFunc()" class="btn btn-outline-dark">Logout
+        <span class="badge text-bg-primary">{{ this.authService.getAuthContext()?.userName }}</span>
+      </button>
+    </div>
+    <div *ngIf="!authService.isLoggedIn()" class="spinner-border text-dark"></div>
+  </div>
+</div>
