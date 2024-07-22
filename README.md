@@ -48,7 +48,8 @@
 
 ## Настройка host
 1. В файле манифеста `src/assets/mf.manifest.json` должны быть перечислены микрофронтенды, используемые в работе host.
-Например:
+> Например:
+> 
 >      {
 >        "mf_example": "https://localhost:4201/remoteEntry.js",
 >        "mf_kcusers": "https://localhost:4202/remoteEntry.js"
