@@ -10,12 +10,6 @@
           "style": "css"
         }
       },
-      "i18n": {
-        "sourceLocale": "en",
-        "locales": {
-          "ru": "src/locale/messages.ru.xlf"
-        }
-      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -23,10 +17,6 @@
         "build": {
           "builder": "ngx-build-plus:browser",
           "options": {
-            "localize": [
-              "en"
-            ],
-            "i18nMissingTranslation": "error",
             "outputPath": "dist/host",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -47,18 +37,7 @@
             "commonChunk": false
           },
           "configurations": {
-            "en": {
-              "localize": [
-                "en"
-              ]
-            },
-            "ru": {
-              "localize": [
-                "ru"
-              ]
-            },
             "production": {
-              "localize": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -89,12 +68,6 @@
         "serve": {
           "builder": "ngx-build-plus:dev-server",
           "configurations": {
-            "ru": {
-              "browserTarget": "host:build:development,ru"
-            },
-            "en": {
-              "browserTarget": "host:build:development,en"
-            },
             "production": {
               "browserTarget": "host:build:production",
               "extraWebpackConfig": "webpack.prod.config.js"

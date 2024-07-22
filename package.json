@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start:host:en": "ng serve host --configuration=en",
-    "start:host:ru": "ng serve host --configuration=ru",
+    "start:host": "ng serve host",
     "start:mf-example": "ng serve mf-example",
     "start:mf-kcusers": "ng serve mf-kcusers",
     "build": "ng build",
@@ -33,7 +32,6 @@
     "@angular-devkit/build-angular": "^15.0.0",
     "@angular/cli": "^15.0.0",
     "@angular/compiler-cli": "^15.0.0",
-    "@angular/localize": "^15.0.0",
     "@types/jasmine": "~4.3.0",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",
