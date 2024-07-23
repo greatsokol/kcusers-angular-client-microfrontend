@@ -103,7 +103,7 @@
 >       "url": "https://keycloak.local",
 >       "realm": "master",
 >       "clientId": "microfrontends_client",
->       "redirectUri": "https://localhost:4201"
+>       "redirectUri": "https://localhost:4202"
 >       }
 >     }
 
