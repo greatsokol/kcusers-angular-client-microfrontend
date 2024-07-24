@@ -58,10 +58,12 @@
 Далее псевдонимы `mf_example` и `mf_kcusers` используются в роутере (файл `src/hostapp/hostapp.routes.ts`).
 
 2. В файле `src/assets/config.json` должны быть указаны настройки подключения к keycloak.
-   *. url - адрес keycloak,
-   *. realm - рилм, в котором создан клиент,
-   *. clientId - клиент,
-   *. redirectUri - адрес приложения host для обратной переадресации.
+
+* url - адрес keycloak,
+* realm - рилм, в котором создан клиент,
+* clientId - клиент,
+* redirectUri - адрес приложения host для обратной переадресации.
+
 > Например:
 > 
 >     {
@@ -74,11 +76,13 @@
 >     }
 
 ## Настройка mf-example
-1. В файле `projects/mf-example/src/assets/config.json` должны быть указаны настройки подключения к keycloak.
-   *. url - адрес keycloak,
-   *. realm - рилм, в котором создан клиент,
-   *. clientId - клиент,
-   *. redirectUri - адрес приложения host для обратной переадресации.
+В файле `projects/mf-example/src/assets/config.json` должны быть указаны настройки подключения к keycloak.
+
+* url - адрес keycloak,
+* realm - рилм, в котором создан клиент,
+* clientId - клиент,
+* redirectUri - адрес приложения mf-example для обратной переадресации.
+
 >Например:
 > 
 >     {
@@ -92,10 +96,12 @@
 
 ## Настройка mf-kcusers
 1. В файле `projects/mf-kcusers/src/assets/config.json` должны быть указаны настройки подключения к keycloak.
-   *. url - адрес keycloak,
-   *. realm - рилм, в котором создан клиент,
-   *. clientId - клиент,
-   *. redirectUri - адрес приложения host для обратной переадресации.
+
+* url - адрес keycloak,
+* realm - рилм, в котором создан клиент,
+* clientId - клиент,
+* redirectUri - адрес приложения mf-kcusers для обратной переадресации.
+
 >Например:
 > 
 >     {
