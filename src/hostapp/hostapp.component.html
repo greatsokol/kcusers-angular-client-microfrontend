@@ -20,11 +20,11 @@
       <div class="navbar-collapse">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="{{router.url === '/kcusers' ? 'nav-link active' : 'nav-link'}}"
+            <a class="{{router.url.startsWith('/kcusers') ? 'nav-link active' : 'nav-link'}}"
                routerLink="/kcusers">Управление пользователями</a>
           </li>
           <li class="nav-item">
-            <a class="{{router.url === '/example' ? 'nav-link active' : 'nav-link'}}"
+            <a class="{{router.url.startsWith('/example') ? 'nav-link active' : 'nav-link'}}"
                routerLink="/example">Демо МФ</a>
           </li>
         </ul>
