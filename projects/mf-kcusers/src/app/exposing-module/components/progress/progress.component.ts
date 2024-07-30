@@ -5,11 +5,15 @@ import {Component, OnInit} from "@angular/core";
   templateUrl: "./progress.component.html"
 })
 export class ProgressComponent implements OnInit {
-  public show: string = "false";
+  protected show: boolean = false;
+
+  public setShow = (show: boolean): void => {
+    this.show = show;
+  }
 
   ngOnInit(): void {
     setInterval(() => {
-      this.show = "true";
+      this.show = true;
     }, 750);
   }
 }

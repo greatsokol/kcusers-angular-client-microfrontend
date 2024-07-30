@@ -10,12 +10,12 @@ import {LoginsLoaderService} from "../../services/LoginsLoaderService";
 })
 export class LoginsPageComponent extends AuthorizableDataComponent implements OnInit, OnDestroy {
   protected dateFormat = inject(DATE_FORMAT);
-  protected loginsLoader = inject(LoginsLoaderService);
+  dataLoader = inject(LoginsLoaderService);
   private route = inject(ActivatedRoute);
   @Input("userName") userName = "";
 
   ngOnDestroy(): void {
-    this.loginsLoader.clear();
+    this.dataLoader.clear();
   }
 
   ngOnInit(): void {
@@ -24,13 +24,12 @@ export class LoginsPageComponent extends AuthorizableDataComponent implements On
     });
 
 
-
     this.route.queryParams.subscribe(params => {
-      if(!this.userName) throw Error("Empty user name");
+      if (!this.userName) throw Error("Empty user name");
 
       const page = params["page"] ? params["page"] : 0;
       const size = params["size"] ? params["size"] : 10;
-      this.loginsLoader.load("/api/logins/" + this.userName, {page, size});
+      this.dataLoader.load("/api/logins/" + this.userName, {page, size});
     });
   }
 }

@@ -1,6 +1,6 @@
 <div>
   <title-component title="Список авторизаций пользователя {{userName}}"></title-component>
-  <div *ngIf="loginsLoader.getData() as data">
+  <div *ngIf="dataLoader.getData() as data" class="test-data-div">
     <table class="table table-hover">
       <thead>
       <tr class="table-primary unselectable sticky-top">
@@ -20,9 +20,9 @@
       </tr>
       </tbody>
     </table>
-    <pager-component [pageLoader]=loginsLoader></pager-component>
+    <pager-component [pageLoader]=dataLoader></pager-component>
   </div>
-  <div *ngIf="loginsLoader.getError() as error">{{ error }}</div>
-  <progress-component *ngIf="!loginsLoader.getData() && !loginsLoader.getError()"></progress-component>
+  <div *ngIf="dataLoader.getError() as error" class="test-error-div">{{ error }}</div>
+  <progress-component *ngIf="!dataLoader.getData() && !dataLoader.getError()" class="test-progress"></progress-component>
 </div>
 

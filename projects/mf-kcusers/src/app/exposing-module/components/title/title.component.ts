@@ -5,6 +5,6 @@ import {Component, Input} from "@angular/core";
   templateUrl: "./title.component.html"
 })
 export class TitleComponent {
-  @Input("back") backEnabled: string = "true";
+  @Input("back") backEnabled: boolean = true;
   @Input("title") title: string = "";
 }

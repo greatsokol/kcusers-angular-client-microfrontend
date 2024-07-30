@@ -1,28 +1,28 @@
 <div class="sticky-bottom" *ngIf="pageLoader?.getData() as data">
   <div class="hstack">
-    <nav *ngIf="data.payload.totalPages > 1">
+    <nav *ngIf="data.payload.totalPages > 1" class="test-page-select">
       <ul class="pagination">
         <li class="page-item">
-          <a class="{{data.payload.number == 0 ? 'page-link disabled' : 'page-link'}}"
+          <a class="{{data.payload.number == 0 ? 'page-link disabled' : 'page-link'}} test-previous-link"
              style="cursor: pointer;" routerLink="."
              [queryParams]="{size: data.payload.size, page: data.payload.number-1}">Пред</a>
         </li>
-        <li class="{{i == data.payload.number ? 'page-item active' : 'page-item'}}"
+        <li class="{{i == data.payload.number ? 'page-item active' : 'page-item'}} test-pagenumber-{{i}}"
             *ngFor="let number of [].constructor(data.payload.totalPages);  let i = index">
           <a class="page-link" style="cursor: pointer;" routerLink="."
              [queryParams]="{size: data.payload.size, page: i}">{{ i + 1 }}</a>
         </li>
         <li class="page-item">
-          <a class="{{data.payload.number == data.payload.totalPages-1 ? 'page-link disabled' : 'page-link'}}"
+          <a class="{{data.payload.number == data.payload.totalPages-1 ? 'page-link disabled' : 'page-link'}} test-next-link"
              style="cursor: pointer;"
              routerLink="."
              [queryParams]="{size: data.payload.size, page: data.payload.number+1}">Далее</a>
         </li>
       </ul>
     </nav>
-    <nav *ngIf="data.payload.totalElements > 10" class="ms-auto">
+    <nav *ngIf="data.payload.totalElements > 10" class="ms-auto test-items-count">
       <ul class="pagination">
-        <li class="{{count == data.payload.size ? 'page-item active' : 'page-item'}}"
+        <li class="{{count == data.payload.size ? 'page-item active' : 'page-item'}} test-count-{{count}}"
             *ngFor="let count of [10, 20, 30]">
           <a class="page-link" style="cursor: pointer;" routerLink="."
              [queryParams]="{size: count, page: 0}">{{ count }}</a>

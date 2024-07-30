@@ -6,7 +6,7 @@ import {AuthService} from "@@auth-lib";
   templateUrl: "./example-component.component.html"
 })
 export class ExampleComponentComponent {
-  protected authService = inject(AuthService);
+  authService = inject(AuthService);
   constructor() {
   }
 }

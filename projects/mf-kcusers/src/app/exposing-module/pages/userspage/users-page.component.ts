@@ -10,20 +10,18 @@ import {AuthorizableDataComponent} from "../../components/etc/AuthorizableDataCo
 })
 export class UsersPageComponent extends AuthorizableDataComponent implements OnInit, OnDestroy {
   protected dateFormat = inject(DATE_FORMAT);
-  protected usersLoader = inject(UsersLoaderService);
+  dataLoader = inject(UsersLoaderService);
   private route = inject(ActivatedRoute);
-  // private pageNumber = 0;
-  // private pageSize = 10;
 
   ngOnDestroy(): void {
-    this.usersLoader.clear();
+    this.dataLoader.clear();
   }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       const page = params["page"] ? params["page"] : 0;
       const size = params["size"] ? params["size"] : 10;
-      this.usersLoader.load("/api/users", {page, size});
+      this.dataLoader.load("/api/users", {page, size});
     });
   }
 }

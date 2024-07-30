@@ -10,13 +10,13 @@ import {AuthorizableDataComponent} from "../../components/etc/AuthorizableDataCo
 })
 export class UserEventsPageComponent extends AuthorizableDataComponent implements OnInit, OnDestroy {
   protected dateFormat = inject(DATE_FORMAT);
-  protected userEventsLoader = inject(UserEventsLoaderService);
+  dataLoader = inject(UserEventsLoaderService);
   private route = inject(ActivatedRoute);
   @Input("realmName") realmName = "";
   @Input("userName") userName = "";
 
   ngOnDestroy(): void {
-    this.userEventsLoader.clear();
+    this.dataLoader.clear();
   }
 
   ngOnInit(): void {
@@ -31,7 +31,7 @@ export class UserEventsPageComponent extends AuthorizableDataComponent implement
 
       const page = params["page"] ? params["page"] : 0;
       const size = params["size"] ? params["size"] : 10;
-      this.userEventsLoader.load("/api/events/" + this.realmName + "/" + this.userName, {page, size});
+      this.dataLoader.load("/api/events/" + this.realmName + "/" + this.userName, {page, size});
     });
   }
 }

@@ -1,6 +1,6 @@
 <div>
   <title-component title="Список событий пользователя {{userName}} ({{realmName}})"></title-component>
-  <div *ngIf="userEventsLoader.getData() as data">
+  <div *ngIf="dataLoader.getData() as data" class="test-data-div">
     <table class="table table-hover">
       <thead>
       <tr class="table-primary unselectable sticky-top">
@@ -25,9 +25,9 @@
       </tr>
       </tbody>
     </table>
-    <pager-component [pageLoader]=userEventsLoader></pager-component>
+    <pager-component [pageLoader]=dataLoader></pager-component>
   </div>
-  <div *ngIf="userEventsLoader.getError() as error">{{ error }}</div>
-  <progress-component *ngIf="!userEventsLoader.getData() && !userEventsLoader.getError()"></progress-component>
+  <div *ngIf="dataLoader.getError() as error" class="test-error-div">{{ error }}</div>
+  <progress-component *ngIf="!dataLoader.getData() && !dataLoader.getError()" class="test-progress"></progress-component>
 </div>
 

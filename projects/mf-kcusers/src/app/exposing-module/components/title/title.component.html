@@ -1,8 +1,9 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <button *ngIf="backEnabled=='true'" aria-current="page" class="btn btn-outline-success" onclick="history.back()">Назад
+    <button *ngIf="backEnabled" aria-current="page" class="btn btn-outline-success test-back-button"
+            onclick="history.back()">Назад
     </button>
-    <div class="navbar-brand unselectable fw-bold {{backEnabled ? 'ps-3':''}}">{{ title }}</div>
+    <div class="navbar-brand unselectable fw-bold {{backEnabled ? 'ps-3':''}} test-title">{{ title }}</div>
     <div class="navbar-collapse">
     </div>
     <ng-content></ng-content>

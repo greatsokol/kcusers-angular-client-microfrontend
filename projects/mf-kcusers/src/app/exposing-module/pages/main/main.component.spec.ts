@@ -1,17 +1,17 @@
 import {TestBed} from "@angular/core/testing";
 import {RouterTestingModule} from "@angular/router/testing";
-import {AppComponent} from "./app.component";
 import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
+import {MainComponent} from "./main.component";
 
-describe("AppComponent", () => {
+describe("KCUsers: MainComponent", () => {
   beforeEach(() => TestBed.configureTestingModule({
     imports: [RouterTestingModule],
-    declarations: [AppComponent],
+    declarations: [MainComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
   }));
 
-  it("Example: should create the application", () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  it("should create the component", () => {
+    const fixture = TestBed.createComponent(MainComponent);
     const component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });

@@ -57,7 +57,7 @@ export class DefaultDataLoader {
   }
 
   public setParams(params: object) {
-    this.params = params;
+    this.params = {...params};
     this.reload();
   }
 
@@ -67,7 +67,7 @@ export class DefaultDataLoader {
 
   public setData(data: object) {
     this.error = null;
-    this.data = data;
+    this.data = {...data};
   }
 
   public getError(): string | null {

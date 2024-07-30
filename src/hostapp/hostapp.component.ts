@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, inject} from "@angular/core";
 import {AuthService} from "@@auth-lib";
 import {Router} from "@angular/router";
 
@@ -9,8 +9,10 @@ import {Router} from "@angular/router";
 export class HostAppComponent {
   title = "HOST APPLICATION";
 
-  constructor(protected readonly authService: AuthService,
-              protected readonly router: Router) {
+  protected readonly authService = inject(AuthService);
+  protected readonly router = inject(Router);
+
+  constructor() {
   }
 
 }

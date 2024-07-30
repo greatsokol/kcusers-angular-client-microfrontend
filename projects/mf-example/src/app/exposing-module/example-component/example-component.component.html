@@ -1,6 +1,6 @@
 <div class="w-auto p-3 h-auto d-inline-block">
   <div class="card">
-    <div class="card-body" *ngIf="authService.isLoggedIn()">
+    <div class="card-body test-authorities-rendered" *ngIf="authService.isLoggedIn()">
       <h1 class="card-title">Microfrontend example</h1>
       <h2 class="card-text" *ngIf="authService.isLoggedIn()">LOGGED IN:
         <span class="badge text-bg-primary m-1">successfully</span>
@@ -18,6 +18,6 @@
         <span class="badge text-bg-primary">{{ this.authService.getAuthContext()?.userName }}</span>
       </button>
     </div>
-    <div *ngIf="!authService.isLoggedIn()" class="spinner-border text-dark"></div>
+    <div *ngIf="!authService.isLoggedIn()" class="spinner-border text-dark test-spinner"></div>
   </div>
 </div>

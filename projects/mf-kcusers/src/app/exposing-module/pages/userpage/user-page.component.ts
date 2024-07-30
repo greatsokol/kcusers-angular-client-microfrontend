@@ -16,7 +16,7 @@ export class UserPageComponent extends AuthorizableDataComponent implements OnIn
   @Input("userName") userName = "";
   @ViewChild("enabledInputCheckBox") enabledInputCheckBox: any;
   private route = inject(ActivatedRoute);
-  protected userLoader = inject(UserLoaderService);
+  dataLoader = inject(UserLoaderService);
   protected dateFormat = inject(DATE_FORMAT);
   protected httpClient = inject(HttpClient);
 
@@ -26,12 +26,12 @@ export class UserPageComponent extends AuthorizableDataComponent implements OnIn
       this.userName = params["userName"];
       if(!this.realmName) throw Error("empty realmName");
       if(!this.userName) throw Error("empty userName");
-      this.userLoader.load("/api/user/" + this.realmName + '/' + this.userName);
+      this.dataLoader.load("/api/user/" + this.realmName + '/' + this.userName);
     });
   }
 
   ngOnDestroy() {
-    this.userLoader.clear();
+    this.dataLoader.clear();
   }
 
   protected postChanges() {
@@ -44,8 +44,8 @@ export class UserPageComponent extends AuthorizableDataComponent implements OnIn
       .httpClient
       .post(url.href, body, headers)
       .subscribe({
-        next: res => this.userLoader.setData(res),
-        error: err => this.userLoader.setError(err)
+        next: res => this.dataLoader.setData(res),
+        error: err => this.dataLoader.setError(err)
       });
   }
 }
