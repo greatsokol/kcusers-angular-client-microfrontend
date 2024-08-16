@@ -22,10 +22,18 @@
 1. Запустите keycloak по адресу `https://keycloak.local`.
 2. В keycloak, в разделе `Client scopes` проверьте scope `roles`:
   * На закладке `Mappers` добавьте mapper `realm roles`, если отсутствует.
-  * В маппере `realm roles` должен быть включен переключатель `Add to ID token`.
 3. В keycloak создайте клиент `microfrontends_client`. При создании укажите:
    * Тип клиента: OpenID `Connect`
-   * Client authentication: `Off`
+   * Client authentication: `ВЫКЛ`
+   Параметры клиента:
+     * `Client authentication=ВЫКЛ`
+     * `Authorization=ВЫКЛ`
+     * `Standart flow=ВКЛ`
+     * `Direct access grants=ВЫКЛ`
+     * `Implicit flow=ВЫКЛ`
+     * `Service accounts roles=ВЫКЛ`
+     * `OAuth 2.0 Device Authorization Grant=ВЫКЛ`
+     * `OIDC CIBA Grant=ВЫКЛ`
 4. В клиенте `microfrontends_client` добавьте в поля `Valid redirect URIs` и `Web origins` URL-адреса host и каждого микрофронтенда. Например:
 >    Valid redirect URIs:  
 >                          
@@ -57,7 +65,7 @@
 
 Далее псевдонимы `mf_example` и `mf_kcusers` используются в роутере (файл `src/hostapp/hostapp.routes.ts`).
 
-2. В файле `src/assets/config.json` должны быть указаны настройки подключения к keycloak.
+2. В файле `src/config.ts` должны быть указаны настройки подключения к keycloak.
 
 * url - адрес keycloak,
 * realm - рилм, в котором создан клиент,
@@ -74,7 +82,7 @@
 >     }
 
 ## Настройка mf-example
-В файле `projects/mf-example/src/assets/config.json` должны быть указаны настройки подключения к keycloak.
+В файле `projects/mf-example/src/config.ts` должны быть указаны настройки подключения к keycloak.
 
 * url - адрес keycloak,
 * realm - рилм, в котором создан клиент,
@@ -91,7 +99,7 @@
 >     }
 
 ## Настройка mf-kcusers
-1. В файле `projects/mf-kcusers/src/assets/config.json` должны быть указаны настройки подключения к keycloak.
+1. В файле `projects/mf-kcusers/src/config.ts` должны быть указаны настройки подключения к keycloak.
 
 * url - адрес keycloak,
 * realm - рилм, в котором создан клиент,
@@ -107,7 +115,7 @@
 >       }
 >     }
 
-2. В файле `projects/mf-kcusers/src/app/consts.ts` указать URL-адрес API-сервиса KCUsers.
+2. В файле `projects/mf-kcusers/src/config.ts` указать URL-адрес API-сервиса KCUsers.
 >Например:
 > 
 >     export const serverUrl:string = "https://kcusers.local";

@@ -1,10 +1,10 @@
 import {Component, inject, Input, OnDestroy, OnInit, ViewChild} from "@angular/core";
 import {UserLoaderService} from "../../services/UserLoaderService";
 import {DATE_FORMAT} from "../../services/DateFormatToken";
-import {serverUrl} from "../../../consts";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {AuthorizableDataComponent} from "../../components/etc/AuthorizableDataComponent";
 import {ActivatedRoute} from "@angular/router";
+import {serverUrl} from "../../../../config";
 
 
 @Component({

@@ -1,7 +1,7 @@
 import {inject} from "@angular/core";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {AuthService} from "@@auth-lib";
-import {serverUrl} from "../../consts";
+import {serverUrl} from "../../../config";
 
 export class DefaultDataLoader {
   private httpClient = inject(HttpClient);
@@ -31,7 +31,7 @@ export class DefaultDataLoader {
         }
         this.timeout = window.setInterval(() => {
           this.__load(path, params);
-        }, 60000);
+        }, 30000);
       },
       error: err => {
         console.log(err);

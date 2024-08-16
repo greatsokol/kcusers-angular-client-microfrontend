@@ -1,8 +1,7 @@
 import {NgModule} from "@angular/core";
 import {KeycloakService} from "keycloak-angular";
 import {HttpClientModule} from "@angular/common/http";
-import {AuthService} from "./auth.service";
-import {KeycloakBearerInterceptorProvider, KeycloakInitializerProvider} from "./keycloak";
+import {KeycloakBearerInterceptorProvider} from "./keycloak";
 
 @NgModule({
   declarations: [],
@@ -11,8 +10,8 @@ import {KeycloakBearerInterceptorProvider, KeycloakInitializerProvider} from "./
   ],
   providers: [
     KeycloakService,
-    AuthService,
-    KeycloakInitializerProvider,
+    //AuthService,
+    //KeycloakInitializerProvider,
     KeycloakBearerInterceptorProvider
   ],
   exports: []

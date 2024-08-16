@@ -6,6 +6,7 @@ import {RouterModule} from "@angular/router";
 import {ExposingModule} from "./exposing-module/exposing.module";
 import {BrowserModule} from "@angular/platform-browser";
 import {AuthModule} from "@@auth-lib"
+import {appConfig} from "../config";
 
 @NgModule({
   imports: [
@@ -18,6 +19,9 @@ import {AuthModule} from "@@auth-lib"
     AppComponent
   ],
   providers: [
+    {
+      provide: 'appConfig', useValue: appConfig
+    }
   ],
   bootstrap: [
     AppComponent

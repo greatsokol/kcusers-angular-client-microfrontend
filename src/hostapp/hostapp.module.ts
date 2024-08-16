@@ -6,6 +6,7 @@ import {RouterModule} from "@angular/router";
 import {APP_ROUTES} from "./hostapp.routes";
 import {FormsModule} from "@angular/forms";
 import {AuthModule} from "@@auth-lib";
+import {appConfig} from "../config";
 
 @NgModule({
   imports: [
@@ -14,7 +15,11 @@ import {AuthModule} from "@@auth-lib";
     FormsModule,
     RouterModule.forRoot(APP_ROUTES) //{bindToComponentInputs: true}
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'appConfig', useValue: appConfig
+    }
+  ],
   declarations: [
     HostAppComponent
   ],

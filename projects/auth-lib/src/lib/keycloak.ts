@@ -1,14 +1,14 @@
 import {KeycloakBearerInterceptor, KeycloakService} from "keycloak-angular";
 import {AppConfig} from "./types/appconfig";
 import {HTTP_INTERCEPTORS, HttpClient} from "@angular/common/http";
-import {APP_INITIALIZER, Provider} from "@angular/core";
+import {APP_INITIALIZER, Inject, Provider} from "@angular/core";
 
-const initializeKeycloak = (keycloak: KeycloakService, config: AppConfig | null) => {
+export const initializeKeycloak = (keycloak: KeycloakService, config: AppConfig | null) => {
   keycloak.init({
     config: {
       url: config ? config.keycloak.url : "https://keycloak.local",
       realm: config ? config.keycloak.realm : "master",
-      clientId: config ? config.keycloak.clientId : "test_client_web",
+      clientId: config ? config.keycloak.clientId : "microfrontends_client",
     },
     loadUserProfileAtStartUp: true,
     initOptions: {
@@ -31,18 +31,18 @@ const initializeKeycloak = (keycloak: KeycloakService, config: AppConfig | null)
     .catch(err => console.error("Failed to initialize keycloak service", err));
 }
 
-const loadConfigThenInitialiazeKeycloak = (keycloak: KeycloakService, http: HttpClient) => async () => {
-  http.get<AppConfig>("/assets/config.json").subscribe(
-    (response: AppConfig) => {
-      //console.log(response);
-      initializeKeycloak(keycloak, response);
-    },
-    (err) => {
-      console.error(err);
-      initializeKeycloak(keycloak, null);
-    }
-  );
-}
+// const loadConfigThenInitialiazeKeycloak = (keycloak: KeycloakService, http: HttpClient) => async () => {
+//   http.get<AppConfig>("/assets/config.ts").subscribe(
+//     (response: AppConfig) => {
+//       //console.log(response);
+//       initializeKeycloak(keycloak, response);
+//     },
+//     (err) => {
+//       console.error(err);
+//       initializeKeycloak(keycloak, null);
+//     }
+//   );
+// }
 
 // Provider for Keycloak Bearer Interceptor
 export const KeycloakBearerInterceptorProvider: Provider = {
@@ -52,9 +52,9 @@ export const KeycloakBearerInterceptorProvider: Provider = {
 };
 
 // Provider for Keycloak Initialization
-export const KeycloakInitializerProvider: Provider = {
-  provide: APP_INITIALIZER,
-  useFactory: loadConfigThenInitialiazeKeycloak,
-  multi: true,
-  deps: [KeycloakService, HttpClient]
-};
+// export const KeycloakInitializerProvider: Provider = {
+//   provide: APP_INITIALIZER,
+//   useFactory: loadConfigThenInitialiazeKeycloak,
+//   multi: true,
+//   deps: [KeycloakService, HttpClient]
+// };

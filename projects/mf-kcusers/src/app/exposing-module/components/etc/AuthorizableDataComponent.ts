@@ -2,8 +2,7 @@ import {AuthService} from "@@auth-lib";
 import {inject} from "@angular/core";
 import {SharedValuesService} from "../../services/SharedValuesService";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {serverUrl} from "../../../consts";
-
+import {serverUrl} from "../../../../config";
 
 export class AuthorizableDataComponent {
   private authService = inject(AuthService);

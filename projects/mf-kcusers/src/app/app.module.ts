@@ -6,7 +6,8 @@ import {RouterModule} from "@angular/router";
 import {KcusersModule} from "./exposing-module/kcusers.module";
 import {BrowserModule} from "@angular/platform-browser";
 import {AuthModule} from "@@auth-lib"
-import {MainComponent} from "./exposing-module/pages/main/main.component";
+import {appConfig} from "../config";
+
 
 @NgModule({
   imports: [
@@ -19,6 +20,9 @@ import {MainComponent} from "./exposing-module/pages/main/main.component";
     AppComponent
   ],
   providers: [
+    {
+      provide: 'appConfig', useValue: appConfig
+    }
   ],
   bootstrap: [
     AppComponent

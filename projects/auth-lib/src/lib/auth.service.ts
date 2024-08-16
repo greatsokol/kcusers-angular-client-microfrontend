@@ -1,7 +1,9 @@
-import {inject, Injectable} from "@angular/core";
+import {APP_INITIALIZER, Inject, inject, Injectable, OnInit, Provider} from "@angular/core";
 import {KeycloakEventType, KeycloakService} from "keycloak-angular";
 import {AuthContext} from "./types/authcontext";
 import {KeycloakProfile} from "keycloak-js";
+import {initializeKeycloak} from "./keycloak";
+import {AppConfig} from "./types/appconfig";
 
 @Injectable({
   providedIn: 'root'
@@ -51,7 +53,10 @@ export class AuthService {
     }
   }
 
-  constructor() {
+  constructor(@Inject('appConfig') private readonly appConfig: AppConfig) {
+    console.log("AUTH SERVICE CSTR", appConfig);
+    initializeKeycloak(this.keycloakService, this.appConfig);
+
     this.keycloakService.keycloakEvents$.subscribe(event => {
       if (event.type === KeycloakEventType.OnAuthError) {
         //console.log("KeycloakEventType.OnAuthError", event.args);
@@ -119,3 +124,15 @@ export class AuthService {
     return this.authContext;
   }
 }
+
+// export const AuthServiceProvider: Provider = {
+//   provide: APP_INITIALIZER,
+//   useFactory: (keycloak: KeycloakService) => () => {
+//     console.log("authServiceProvider FACTORY");
+//     initializeKeycloak(keycloak, null);
+//   },
+//   multi: true,
+//   deps: [KeycloakService]
+// }
+
+
