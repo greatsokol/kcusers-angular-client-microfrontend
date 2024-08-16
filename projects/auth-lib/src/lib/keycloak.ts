@@ -16,7 +16,7 @@ const initializeKeycloak = (keycloak: KeycloakService, config: AppConfig | null)
       onLoad: 'login-required',
       //silentCheckSsoRedirectUri: window.location.origin + '/assets/silent-check-sso.html',
       //checkLoginIframe: false,
-      redirectUri: config ? config.keycloak.redirectUri : "http://localhost:4200",
+      //redirectUri: config ? config.keycloak.redirectUri : "http://localhost:4200",
     },
     enableBearerInterceptor: true,
     // Prefix for the Bearer token

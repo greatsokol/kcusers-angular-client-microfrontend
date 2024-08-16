@@ -18,8 +18,9 @@ import {AuthModule} from "@@auth-lib";
   declarations: [
     HostAppComponent
   ],
-
-  bootstrap: [HostAppComponent]
+  bootstrap: [
+    HostAppComponent
+  ]
 })
 export class HostAppModule {
 }

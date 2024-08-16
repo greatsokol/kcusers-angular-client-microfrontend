@@ -29,7 +29,7 @@ export class DefaultDataLoader {
         if (this.timeout) {
           clearInterval(this.timeout);
         }
-        this.timeout = setInterval(() => {
+        this.timeout = window.setInterval(() => {
           this.__load(path, params);
         }, 60000);
       },

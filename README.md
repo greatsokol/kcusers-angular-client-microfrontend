@@ -61,8 +61,7 @@
 
 * url - адрес keycloak,
 * realm - рилм, в котором создан клиент,
-* clientId - клиент,
-* redirectUri - адрес приложения host для обратной переадресации.
+* clientId - клиент
 
 > Например:
 > 
@@ -70,8 +69,7 @@
 >       "keycloak": {
 >         "url": "https://keycloak.local",
 >         "realm": "master",
->         "clientId": "microfrontends_client",
->         "redirectUri": "https://localhost:4200"
+>         "clientId": "microfrontends_client"
 >       }
 >     }
 
@@ -80,8 +78,7 @@
 
 * url - адрес keycloak,
 * realm - рилм, в котором создан клиент,
-* clientId - клиент,
-* redirectUri - адрес приложения mf-example для обратной переадресации.
+* clientId - клиент
 
 >Например:
 > 
@@ -89,8 +86,7 @@
 >       "keycloak": {
 >       "url": "https://keycloak.local",
 >       "realm": "master",
->       "clientId": "microfrontends_client",
->       "redirectUri": "https://localhost:4201"
+>       "clientId": "microfrontends_client"
 >       }
 >     }
 
@@ -99,8 +95,7 @@
 
 * url - адрес keycloak,
 * realm - рилм, в котором создан клиент,
-* clientId - клиент,
-* redirectUri - адрес приложения mf-kcusers для обратной переадресации.
+* clientId - клиент
 
 >Например:
 > 
@@ -108,8 +103,7 @@
 >       "keycloak": {
 >       "url": "https://keycloak.local",
 >       "realm": "master",
->       "clientId": "microfrontends_client",
->       "redirectUri": "https://localhost:4202"
+>       "clientId": "microfrontends_client"
 >       }
 >     }
 
